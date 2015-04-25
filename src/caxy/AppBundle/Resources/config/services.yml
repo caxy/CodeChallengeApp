@@ -1,0 +1,4 @@
+services:
+#    caxy_app.example:
+#        class: caxy\AppBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
