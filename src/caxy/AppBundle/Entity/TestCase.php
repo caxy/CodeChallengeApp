@@ -122,10 +122,10 @@ class TestCase
     }
 
     /**
-    * @return int;
+    * @return string;
     */
     public function __toString()
     {
-        return $this->id;
+        return $this->output;
     }
 }
