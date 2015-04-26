@@ -1,4 +1,10 @@
 services:
-#    caxy_app.example:
-#        class: caxy\AppBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    caxy_app.answer_form_handler:
+        class: caxy\AppBundle\Form\Handler\AnswerFormHandler
+        arguments:
+            - "@caxy_app.answer_manager"
+
+    caxy_app.answer_manager:
+        class: caxy\AppBundle\Service\AnswerManager
+        arguments:
+            - "@doctrine.orm.entity_manager"
