@@ -9,11 +9,11 @@ use Symfony\Component\HttpFoundation\Response;
 use caxy\AppBundle\Entity\Answer;
 use caxy\AppBundle\Form\AnswerType;
 
-class AnswerController extends Controller
+class DefaultController extends Controller
 {
     /**
-     * Show answer page with active CodeChallenge.
-     * @Route("/", name="answer_index")
+     * Show active CodeChallenge with new Answer form
+     * @Route("/", name="index")
      * @param Request $request
      *
      * @return Response
@@ -24,6 +24,7 @@ class AnswerController extends Controller
         $activeCodeChallenge = $em->getRepository('AppBundle:CodeChallenge')->findOneBy(array('isActive' => true));
 
         $answer = new Answer();
+        $answer->setCodeChallenge($activeCodeChallenge);
 
         $form = $this->createForm(new AnswerType(), $answer);
 
